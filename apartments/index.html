@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Polaris Apartment Shortlist</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><a class="dailies-home" href="../">← Dailies Home</a>
+<header>
+  <h1>🏠 Polaris Apartment Shortlist</h1>
+  <div class="sub">20 apartments • 2 bedrooms • recurring target up to $1,700/month • about 20 minutes or less from Polaris Fashion Place</div>
+  <div class="controls">
+    <input id="q" placeholder="Search apartments or addresses..." oninput="filter()">
+    <select id="s" onchange="sortList()">
+      <option value="rank">Rank</option>
+      <option value="price">Advertised rent</option>
+    </select>
+  </div>
+</header>
+<div class="layout">
+  <section class="list" id="list"><article class="card" data-rank="1">
+      <div class="rank">#1</div>
+      <div class="body">
+        <h2>The Flats at Polaris</h2>
+        <div class="addr">1650 Crescent Ridge Blvd, Westerville, OH 43081</div>
+        <div><span class="chip price">$1,299</span><span class="chip drive">🚗 ~5–8 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/the-flats-at-polaris-westerville-oh/q1ndjlx/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(1)">Map</button>
+      </div>
+    </article><article class="card" data-rank="2">
+      <div class="rank">#2</div>
+      <div class="body">
+        <h2>The Lakes of Olentangy</h2>
+        <div class="addr">260 Lazelle Rd, Lewis Center, OH 43035</div>
+        <div><span class="chip price">$1,441 total monthly price</span><span class="chip drive">🚗 ~5–8 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/the-lakes-of-olentangy-lewis-center-oh/b7rf4q9/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(2)">Map</button>
+      </div>
+    </article><article class="card" data-rank="3">
+      <div class="rank">#3</div>
+      <div class="body">
+        <h2>Pierpont Apartments</h2>
+        <div class="addr">8200 Worthington Galena Rd, Westerville, OH 43081</div>
+        <div><span class="chip price">$1,299</span><span class="chip drive">🚗 ~8–12 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/pierpont-apartments-westerville-oh/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(3)">Map</button>
+      </div>
+    </article><article class="card" data-rank="4">
+      <div class="rank">#4</div>
+      <div class="body">
+        <h2>Oak Creek at Polaris</h2>
+        <div class="addr">9005 Oak Village Blvd, Lewis Center, OH 43035</div>
+        <div><span class="chip price">~$1,420</span><span class="chip drive">🚗 ~5–8 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/oak-creek-at-polaris-lewis-center-oh/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(4)">Map</button>
+      </div>
+    </article><article class="card" data-rank="5">
+      <div class="rank">#5</div>
+      <div class="body">
+        <h2>Remington Woods</h2>
+        <div class="addr">8495 Bella Woods Dr, Lewis Center, OH 43035</div>
+        <div><span class="chip price">~$1,445+</span><span class="chip drive">🚗 ~8–12 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/remington-woods-lewis-center-oh/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(5)">Map</button>
+      </div>
+    </article><article class="card" data-rank="6">
+      <div class="rank">#6</div>
+      <div class="body">
+        <h2>Lake Club at Polaris</h2>
+        <div class="addr">1038 Bayridge Dr, Lewis Center, OH 43035</div>
+        <div><span class="chip price">~$1,455+</span><span class="chip drive">🚗 ~7–10 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/lake-club-lewis-center-oh/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(6)">Map</button>
+      </div>
+    </article><article class="card" data-rank="7">
+      <div class="rank">#7</div>
+      <div class="body">
+        <h2>Northpark Place</h2>
+        <div class="addr">1350 Gage St, Columbus, OH 43240</div>
+        <div><span class="chip price">~$1,425+</span><span class="chip drive">🚗 ~5–7 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/northpark-place-columbus-oh/kd26qb9/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(7)">Map</button>
+      </div>
+    </article><article class="card" data-rank="8">
+      <div class="rank">#8</div>
+      <div class="body">
+        <h2>Traditions at Worthington Woods</h2>
+        <div class="addr">7325 Cayman Ln, Columbus, OH 43085</div>
+        <div><span class="chip price">~$1,500</span><span class="chip drive">🚗 ~10–15 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/traditions-at-worthington-woods-columbus-oh/ek0wxeq/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(8)">Map</button>
+      </div>
+    </article><article class="card" data-rank="9">
+      <div class="rank">#9</div>
+      <div class="body">
+        <h2>Prescott Place</h2>
+        <div class="addr">351 Peat Moss Dr, Columbus, OH 43235</div>
+        <div><span class="chip price">~$1,270+</span><span class="chip drive">🚗 ~10–15 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/prescott-place-columbus-oh/pgttr8s/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(9)">Map</button>
+      </div>
+    </article><article class="card" data-rank="10">
+      <div class="rank">#10</div>
+      <div class="body">
+        <h2>Cedar Trace</h2>
+        <div class="addr">963 Cedar Trace Blvd, Westerville, OH 43081</div>
+        <div><span class="chip price">~$1,395</span><span class="chip drive">🚗 ~10–15 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/cedar-trace-westerville-oh/2srmd69/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(10)">Map</button>
+      </div>
+    </article><article class="card" data-rank="11">
+      <div class="rank">#11</div>
+      <div class="body">
+        <h2>Summerview</h2>
+        <div class="addr">8357 Falling Water Ln, Columbus, OH 43240</div>
+        <div><span class="chip price">$1,370</span><span class="chip drive">🚗 ~5–8 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/summerview-columbus-oh/j2c2r37/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(11)">Map</button>
+      </div>
+    </article><article class="card" data-rank="12">
+      <div class="rank">#12</div>
+      <div class="body">
+        <h2>Grand at Polaris</h2>
+        <div class="addr">850 Polaris Grand Dr, Lewis Center, OH 43035</div>
+        <div><span class="chip price">~$1,415+</span><span class="chip drive">🚗 ~5–8 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(12)">Map</button>
+      </div>
+    </article><article class="card" data-rank="13">
+      <div class="rank">#13</div>
+      <div class="body">
+        <h2>Worthington Commons</h2>
+        <div class="addr">1541 Barnes Dr E, Columbus, OH 43229</div>
+        <div><span class="chip price">~$1,360</span><span class="chip drive">🚗 ~12–17 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/worthington-commons-worthington-city-school-district-columbus-oh/hqjb991/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(13)">Map</button>
+      </div>
+    </article><article class="card" data-rank="14">
+      <div class="rank">#14</div>
+      <div class="body">
+        <h2>Mirada</h2>
+        <div class="addr">1 Mirada Dr N, Lewis Center, OH 43035</div>
+        <div><span class="chip price">~$1,590+</span><span class="chip drive">🚗 ~5–10 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/mirada-lewis-center-oh/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(14)">Map</button>
+      </div>
+    </article><article class="card" data-rank="15">
+      <div class="rank">#15</div>
+      <div class="body">
+        <h2>Hayden Reserve</h2>
+        <div class="addr">7375 High Cross Blvd, Columbus, OH 43235</div>
+        <div><span class="chip price">$1,595</span><span class="chip drive">🚗 ~12–16 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/hayden-reserve-columbus-oh/16nre54/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(15)">Map</button>
+      </div>
+    </article><article class="card" data-rank="16">
+      <div class="rank">#16</div>
+      <div class="body">
+        <h2>Liberty House</h2>
+        <div class="addr">7450 Vantage Dr, Columbus, OH 43235</div>
+        <div><span class="chip price">$1,595</span><span class="chip drive">🚗 ~12–16 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(16)">Map</button>
+      </div>
+    </article><article class="card" data-rank="17">
+      <div class="rank">#17</div>
+      <div class="body">
+        <h2>Allston Pointe</h2>
+        <div class="addr">227 Allston Way, Columbus, OH 43235</div>
+        <div><span class="chip price">~$1,400+</span><span class="chip drive">🚗 ~12–17 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(17)">Map</button>
+      </div>
+    </article><article class="card" data-rank="18">
+      <div class="rank">#18</div>
+      <div class="body">
+        <h2>Alexander Park</h2>
+        <div class="addr">747 Worthington Woods Blvd, Worthington, OH 43085</div>
+        <div><span class="chip price">~$1,343+</span><span class="chip drive">🚗 ~12–17 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/alexander-park-worthington-oh/f8jqh2r/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(18)">Map</button>
+      </div>
+    </article><article class="card" data-rank="19">
+      <div class="rank">#19</div>
+      <div class="body">
+        <h2>The Avenue at Polaris</h2>
+        <div class="addr">8321 Seattle Ave, Columbus, OH 43240</div>
+        <div><span class="chip price">~$1,534+</span><span class="chip drive">🚗 ~5–8 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/the-avenue-at-polaris-apartments-columbus-oh/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(19)">Map</button>
+      </div>
+    </article><article class="card" data-rank="20">
+      <div class="rank">#20</div>
+      <div class="body">
+        <h2>Copley Park</h2>
+        <div class="addr">7505 Worthington Galena Rd, Worthington, OH 43085</div>
+        <div><span class="chip price">~$1,297+</span><span class="chip drive">🚗 ~12–17 min</span></div>
+        <p><b>Special:</b> Check current listing for today's promotion.</p>
+        <p class="small">Map pin is geocoded from the exact street address above.</p>
+        <a class="btn" href="https://www.apartments.com/copley-park-worthington-oh/ee9nqmm/" target="_blank" rel="noopener">Apartments.com ↗</a>
+        <button class="btn gray" onclick="focusApartment(20)">Map</button>
+      </div>
+    </article></section>
+  <div id="map"><div id="mapStatus">Locating apartments from their exact street addresses…</div></div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
